@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Pneumonia Detection</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
+<script src="../static/js/pnm.js"></script>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../static/css/styledr.css">
+<link rel="stylesheet" href="../static/css/responsive.css" media="screen and (max-width: 1050px)">
+<!--Import Google Icon Font-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<!--Let browser know website is optimized for mobile-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+
+</head>
+<body>
+
+    <nav>
+        <div class="nav-wrapper">
+            <a href="index.html" class="brand-logo"><img src="../static/images/logo2.png" width="27%"></a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="#prevention">PREVENTION</a></li>  
+                <li><a href="#treatment">TREATMENT</a></li>
+                <li><a href="#welcomeContact">CONTACT</a></li>
+                <li><a href="#" class="waves-effect waves-light btn">SIGNOUT</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <ul class="sidenav center" id="mobile-demo">
+        <li><a href="#prevention">PREVENTION</a></li>  
+        <li><a href="#treatment">TREATMENT</a></li>
+        <li><a href="#welcomeContact">CONTACT</a></li>
+        <li><a href="#" class="waves-effect waves-light btn">SIGNOUT</a></li>
+    </ul>
+
+  <br>
+<br>
+
+
+
+<div class = "new" >
+
+<h3 align="center" ><font color="#000000">Detecting Pneumonia using Chest X-ray images</font></h3>
+
+<br>
+<br>
+<center>
+<select id="id_one" onchange="show_hide_cancer()" class="button">
+<option value="pnm">Upload Chest X-ray Images</option>
+</select>
+
+  <input id="file_" type="file" name="pic" accept="image/*" capture="camera" onchange="readURL(this);" class="button"/>
+
+<button onclick="submit();changeText('button1', 'Analysing....', 'Analyse Image');" class="button" id="button1">Analyse Image</button>
+  
+<br>
+<br>  
+  <h4 id="given"></h4>
+  <div class="gif">
+  <img src="../static/images/pht.gif" id="blah" class="demo">
+  </div>
+<br>
+<br>
+  <h4 id="demo" class="under"></h4>
+  <table align="center">
+    <td height="50%" width="100%">
+    <h5><font color="#5c8a8a"><div id="status1" class="status height" align="center"></div></font></h5>
+    <h5><font color="#5c8a8a"><div id="status2" class="status height" align="center"> </div></font></h5><br>
+    <h5><font color="#5c8a8a"><div id="result" align="center"></div></font></h5>
+  </td>
+ </table>
+	
+</center> 
+</div>
+<br>
+
+
+    <div class="prevention">
+    <div class="container row scrollspy" id="prevention">
+        <h3 class="center">Preventions</h3>
+        <ul class="collapsible">
+            <li>
+                <div class="collapsible-header"><i class="fas fa-hand-holding-heart"></i>Get Vaccinated</div>
+                <div class="collapsible-body">
+                    <p>Get a flu shot every year to prevent seasonal influenza. The flu is a common cause of pneumonia, so preventing the flu is a good way to prevent pneumonia.
+Children younger than 5 and adults 65 and older should get vaccinated against pneumococcal pneumonia, a common form of bacterial pneumonia. The pneumococcal vaccine is also recommended for all children and adults who are at increased risk of pneumococcal disease due to other health conditions. There are two types of pneumococcal vaccine. Talk to your healthcare provider to find out if one of them is right for you.
+There are several other vaccines that can prevent infections by bacteria and viruses that may lead to pneumonia, including pertussis (whooping cough), chicken pox and measles. Please talk to your doctor about whether you and your children are up to date on your vaccines and to determine if any of these vaccines are appropriate for you.</p>
+                </div>
+            </li>
+            <li>
+                <div class="collapsible-header"><i class="fas fa-notes-medical"></i>Don't Smoke</div>
+                <div class="collapsible-body">
+                    <p>Tobacco damages your lung's ability to fight off infection, and smokers have been found to be at higher risk of getting pneumonia. Smokers are considered one of the high-risk groups that are encouraged to get the pneumococcal vaccine.</p>
+                </div>
+            </li>
+            <li>
+                <div class="collapsible-header"><i class="fas fa-heartbeat"></i>Wash Your Hands</div>
+                <div class="collapsible-body">
+                    <p>Wash your hands frequently, especially after blowing your nose, going to the bathroom, diapering, and before eating or preparing foods.</p>
+                </div>
+            </li>
+            <li>
+                <div class="collapsible-header"><i class="fas fa-user-md"></i>Be Aware of Your General Health</div>
+                <div class="collapsible-body">
+                   <p>Since pneumonia often follows respiratory infections, be aware of any symptoms that linger more than a few days.
+Good health habits—a healthy diet, rest, regular exercise, etc.—help you from getting sick from viruses and respiratory illnesses. They also help promote fast recovery when you do get a cold, the flu or other respiratory illness.
+If you have children, talk to their doctor about:
+
+Hib vaccine, which prevents pneumonia in children from Haemophilus influenza type b
+A drug called Synagis (palivizumab), which is given to some children younger than 24 months to prevent pneumonia caused by respiratory syncytial virus (RSV)..</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    </div>
+
+    <div class="treatment">
+        <div class="container">
+            <div class="row row scrollspy" id="treatment">
+                <h3 class="center">How is pneumonia treated?</h3>
+                <div class="col s17 l4">
+                    <div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator" src="../static/images/t1.jpg">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">Prescription medications<i class="material-icons right">more_vert</i></span>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4">Prescription medications<i class="material-icons right">close</i></span>
+                            <p>Your doctor may prescribe a medication to help treat your pneumonia. What you’re prescribed will depend on the specific cause of your pneumonia.
+
+Oral antibiotics can treat most cases of bacterial pneumonia. Always take your entire course of antibiotics, even if you begin to feel better. Not doing so can prevent the infection from clearing, and it may be harder to treat in the future.
+
+Antibiotic medications don’t work on viruses. In some cases, your doctor may prescribe an antiviral. However, many cases of viral pneumonia clear on their own with at-home care.
+
+Antifungal medications are used to fight fungal pneumonia. You may have to take this medication for several weeks to clear the infection.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s17 l4">
+                    <div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator" src="../static/images/t2.jpg">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">At-home care<i class="material-icons right">more_vert</i></span>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4">At-home care<i class="material-icons right">close</i></span>
+                            <p>Your doctor may also recommend over-the-counter (OTC) medication to relieve your pain and fever, as needed. These may include:
+
+aspirin
+ibuprofen (Advil, Motrin)
+acetaminophen (Tylenol)
+Your doctor may also recommend cough medicine to calm your cough so you can rest. Keep in mind coughing helps remove fluid from your lungs, so you don’t want to eliminate it entirely.
+
+You can help your recovery and prevent a recurrence by getting a lot of rest and drinking plenty of fluids.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s17 l4">
+                    <div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator" src="../static/images/t3.jpg">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">Hospitalization<i class="material-icons right">more_vert</i></span>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4">Hospitalization<i class="material-icons right">close</i></span>
+                            <p>If your symptoms are very severe or you have other health problems, you may need to be hospitalized. At the hospital, doctors can keep track of your heart rate, temperature, and breathing. Hospital treatment may include:
+
+intravenous antibiotics injected into a vein
+respiratory therapy, which involves delivering specific medications directly into the lungs or teaching you to perform breathing exercises to maximize your oxygenation
+oxygen therapy to maintain oxygen levels in your bloodstream (received through a nasal tube, face mask, or ventilator, depending on severity)
+</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="logo">
+        <div class="parallax-container">
+            <div class="parallax"><img src="../static/images/eyecare.jpg"></div>
+        </div>
+    </div>
+<br>
+    <div class="contact">
+        <div class="container">
+            <div class="row scrollspy" id="welcomeContact">
+                <div class="col s12 l4 ">
+                    <h3>Address</h3>
+                    <p><i class="material-icons">location_on</i>: pune, india</p>
+                    <p><i class="material-icons">email</i>: daignosisai@gmail.com</p>
+                    <p><i class="material-icons">call</i>: +91 8793858514</p>                </div>
+                <div class="col s12 l8">
+                    <form class="col s12">
+                        <h3>Quick Messages / Feedback</h3>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <i class="material-icons prefix">account_circle</i>
+                                <input id="icon_prefix" type="text" class="validate">
+                                <label for="icon_prefix">First Name</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <i class="material-icons prefix">phone</i>
+                                <input id="icon_telephone" type="tel" class="validate">
+                                <label for="icon_telephone">Telephone</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">email</i>
+                                <input id="email" type="email" class="validate">
+                                <label for="email">Email</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                            <i class="material-icons prefix">mode_edit</i>
+                            <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+                            <label for="icon_prefix2">Message</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+
+<script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+
+<script>
+     function readURL(input) {
+      if (input.files && input.files[0]) {
+          var reader = new FileReader();
+
+          reader.onload = function (e) {
+              $('#blah')
+                  .attr('src', e.target.result);
+          };
+
+          reader.readAsDataURL(input.files[0]);
+      }
+  }
+
+    $(document).ready(function(){
+        $('.parallax').parallax();
+        $('.collapsible').collapsible();
+    });
+</script>
+</body>
+</html>

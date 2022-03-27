@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Malaria Detection</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
+<script src="../static/js/mal.js"></script>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../static/css/styledr.css">
+<link rel="stylesheet" href="../static/css/responsive.css" media="screen and (max-width: 1050px)">
+<!--Import Google Icon Font-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<!--Let browser know website is optimized for mobile-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+
+</head>
+<body bgcolor="#E1FCFF">
+
+    <nav>
+        <div class="nav-wrapper">
+            <a href="index.html" class="brand-logo"><img src="../static/images/logo2.png" width="27%" ></a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="#prevention">PREVENTION</a></li>  
+                <li><a href="#treatment">TREATMENT</a></li>
+                <li><a href="#welcomeContact">CONTACT</a></li>
+                <li><a href="#" class="waves-effect waves-light btn">SIGNOUT</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <ul class="sidenav center" id="mobile-demo">
+        <li><a href="#prevention">PREVENTION</a></li>  
+        <li><a href="#treatment">TREATMENT</a></li>
+        <li><a href="#welcomeContact">CONTACT</a></li>
+        <li><a href="#" class="waves-effect waves-light btn">SIGNOUT</a></li>
+    </ul>
+
+  <br>
+<br>
+<br>
+
+
+
+
+
+<div class = "new" >
+<h3 align="center" ><font color="#000000">Detecting Malaria using cell images</font></h3>
+
+<br>
+<br>
+<center>
+<select id="id_one" onchange="show_hide_cancer()" class="button">
+<option value="mal">Upload Cell Images</option>
+</select>
+
+  <input id="file_" type="file" name="pic" accept="image/*" capture="camera" onchange="readURL(this);" class="button"/>
+
+<button onclick="submit();changeText('button1', 'Analysing....', 'Analyse Image');" class="button" id="button1">Analyse Image</button>
+  
+<br>
+<br>  
+  <h4 id="given"></h4>
+  <div class="gif">
+  <img src="../static/images/pht.gif" id="blah" class="demo">
+  </div>
+<br>
+<br>
+  <h4 id="demo" class="under"></h4>
+  <table align="center">
+    <td height="50%" width="100%">
+    <h5><font color="#5c8a8a"><div id="status" class="status height" align="center"></div></font></h5>
+    <h5><font color="#5c8a8a"><div id="status1" class="status height" align="center"> </div></font></h5><br>
+    <h5><font color="#5c8a8a"><div id="result" align="center"></div></font></h5>
+  </td>
+ </table>
+	
+</center> 
+</div>
+<br>
+
+
+    <div class="prevention">
+    <div class="container row scrollspy" id="prevention">
+        <h3 class="center">Preventions</h3>
+        <ul class="collapsible">
+            <li>
+                <div class="collapsible-header"><i class="fas fa-hand-holding-heart"></i>Being aware of the risks</div>
+                <div class="collapsible-body">
+                    <p>It's also important to visit your GP or local travel clinic for malaria advice as soon as you know where you're going to be travelling.
+
+Even if you grew up in a country where malaria is common, you still need to take precautions to protect yourself from infection if you're travelling to a risk area.
+
+Nobody has complete immunity to malaria, and any level of natural protection you may have had is quickly lost when you move out of a risk area.</p>
+                    
+                </div>
+            </li>
+            <li>
+                <div class="collapsible-header"><i class="fas fa-notes-medical"></i>Preventing bites</div>
+                <div class="collapsible-body">
+                    <p>Stay somewhere that has effective air conditioning and screening on doors and windows. If this isn't possible, make sure doors and windows close properly.</p>
+                    <p>Use insect repellent on your skin and in sleeping environments. Remember to reapply it frequently. The most effective repellents contain diethyltoluamide (DEET) and are available in sprays, roll-ons, sticks and creams. </p>
+                    <p>Wear light, loose-fitting trousers rather than shorts, and wear shirts with long sleeves. This is particularly important during early evening and at night, when mosquitoes prefer to feed.</p>
+                </div>
+            </li>
+            <li>
+                <div class="collapsible-header"><i class="fas fa-heartbeat"></i>Antimalarial tablets</div>
+                <div class="collapsible-body">
+                    <p>There's currently no vaccine available that offers protection against malaria, so it's very important to take antimalarial medication to reduce your chances of getting the disease.
+
+However, antimalarials only reduce your risk of infection by about 90%, so taking steps to avoid bites is also important.</p>
+                    <p>When taking antimalarial medication:
+
+make sure you get the right antimalarial tablets before you go – check with your GP or pharmacist if you're unsure
+follow the instructions included with your tablets carefully
+depending on the type you're taking, continue to take your tablets for up to 4 weeks after returning from your trip to cover the incubation period of the disease</p>
+                </div>
+            </li>
+            <li>
+                <div class="collapsible-header"><i class="fas fa-user-md"></i>DEET insect repellents</div>
+                <div class="collapsible-body">
+                   <p>The chemical DEET is often used in insect repellents. It's not recommended for babies who are less than 2 months old.
+
+DEET is safe for older children, adults and pregnant women if you follow the manufacturer's instructions:</p>
+                   <ol>
+                       <li>use on exposed skin</li>
+                       <li>don't spray directly on to your face – spray into your hands and pat on to your face</li>
+                       <li>avoid contact with lips and eyes</li>
+                       <li>wash your hands after applying</li>
+                       <li>don't apply to broken or irritated skin</li>
+                   </ol>
+                   
+                </div>
+            </li>
+        </ul>
+    </div>
+    </div>
+
+    <div class="treatment">
+        <div class="container">
+            <div class="row row scrollspy" id="treatment">
+                <h3 class="center">How is Malaria treated?</h3>
+                <div class="col s17 l4">
+                    <div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator" src="../static/images/t1.jpg">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">Suppressive treatment<i class="material-icons right">more_vert</i></span>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4">Suppressive treatment<i class="material-icons right">close</i></span>
+                            <p>The symptoms of malaria can be alleviated by suppressing the erythrocytic stage of the parasitic development. Suppressive therapy involves administration of appropriate blood schizonticidal drugs. In all cases of non-falciparum malaria</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s17 l4">
+                    <div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator" src="../static/images/t2.jpg">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">Presumptive treatment<i class="material-icons right">more_vert</i></span>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4">Presumptive treatment<i class="material-icons right">close</i></span>
+                            <p>for malaria involves administration of blood schizonticidal drugs, such as chloroquine, to suspected cases of malaria, followed by full treatment after confirmation. This strategy has been abandoned in recent years. NVBDCP-India now recommends first loading dose of chloroquine only for those areas where neither microscopy nor RDTs are available within 24 hours.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s17 l4">
+                    <div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator" src="../static/images/t3.jpg">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">Radical treatment<i class="material-icons right">more_vert</i></span>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4">Radical treatment<i class="material-icons right">close</i></span>
+                            <p> Radical treatment is administration of primaquine to all confirmed cases of malaria.
+
+In P. vivax malaria, 2 weeks’ therapy with primaquine completely cures the infection in the host by its tissue schizonticidal activity and thereby prevents relapses.
+
+In P. falciparum malaria, a single dose of primaquine destroys the gametocytes, thereby prevents the spread of the infection into the mosquito..</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="logo">
+        <div class="parallax-container">
+            <div class="parallax"><img src="../static/images/eyecare.jpg"></div>
+        </div>
+    </div>
+<br>
+    <div class="contact">
+        <div class="container">
+            <div class="row scrollspy" id="welcomeContact">
+                <div class="col s12 l4 ">
+     <h3>Address</h3>
+                    <p><i class="material-icons">location_on</i>: pune, india</p>
+                    <p><i class="material-icons">email</i>: daignosisai@gmail.com</p>
+                    <p><i class="material-icons">call</i>: +91 8793858514</p>
+                </div>
+                <div class="col s12 l8">
+                    <form class="col s12">
+                        <h3>Quick Messages / Feedback</h3>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <i class="material-icons prefix">account_circle</i>
+                                <input id="icon_prefix" type="text" class="validate">
+                                <label for="icon_prefix">First Name</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <i class="material-icons prefix">phone</i>
+                                <input id="icon_telephone" type="tel" class="validate">
+                                <label for="icon_telephone">Telephone</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">email</i>
+                                <input id="email" type="email" class="validate">
+                                <label for="email">Email</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                            <i class="material-icons prefix">mode_edit</i>
+                            <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+                            <label for="icon_prefix2">Message</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+
+<script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+
+<script>
+     function readURL(input) {
+      if (input.files && input.files[0]) {
+          var reader = new FileReader();
+
+          reader.onload = function (e) {
+              $('#blah')
+                  .attr('src', e.target.result);
+          };
+
+          reader.readAsDataURL(input.files[0]);
+      }
+  }
+
+    $(document).ready(function(){
+        $('.parallax').parallax();
+        $('.collapsible').collapsible();
+    });
+</script>
+</body>
+</html>
